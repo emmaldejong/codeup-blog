@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="UTF-8" />
         <title>Welcome Page</title>
     </head>
     <body>
         <h1>Welcome to the Blog!</h1>
+        <br />
+        <div th:if="${name}">
+            <h3>Welcome, <span th:text="${name}"></span></h3>
+        </div>
+        <!--this is a div with contents-->
+        <div th:include="partials/footer :: footer"></div>
+        <!--this replaces the entire div tag with the footer tag of the element-->
+        <div th:replace="partials/footer :: footer"></div>
     </body>
 </html>
