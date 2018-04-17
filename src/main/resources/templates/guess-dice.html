@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Guess Dice Number</title>
+    </head>
+    <body>
+        <h1 th:text="${'Guess the Number the Dice Will Land On...'}"></h1>
+        <div th:each="number : ${#numbers.sequence(1,6)}">
+            <a th:href="@{'/roll-dice/' + ${number}}" th:text="${number}"></a>
+        </div>
+    </body>
+</html>
