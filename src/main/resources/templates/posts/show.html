@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="partials/header :: header('Post Show Page')"></head>
+    <body>
+    <div th:replace="partials/navbar :: navbar"></div>
+    <main class="container">
+        <h1>Post</h1>
+        <h3><span th:text="${post.title}"></span></h3>
+        <p><span th:text="${post.body}"></span></p>
+    </main>
+    <div th:replace="partials/footer :: footer"></div>
+    </body>
+</html>
