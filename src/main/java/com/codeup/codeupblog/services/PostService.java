@@ -28,4 +28,8 @@ public class PostService {
         posts.add(new Post("Test Post 2", "test description 2"));
         posts.add(new Post("Test Post 3", "test description 3"));
     }
+
+    public void save(Post post) {
+        this.posts.add(post);
+    }
 }
