@@ -1,6 +1,7 @@
 package com.codeup.codeupblog.controllers;
 
-import com.example.blog.models.Post;
+import com.codeup.codeupblog.models.Post;
+import com.codeup.codeupblog.services.PostService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,9 +14,15 @@ import java.util.List;
 
 @Controller
 public class PostController {
+    PostService postService;
+
+    public PostController(PostService postService) {
+        this.postService = postService;
+    }
+
 
     @GetMapping("/posts")
-    public String index(Model model) {
+    public String index(@PathVariable PostService postService, Model model) {
 
         List<Post> posts = new ArrayList<>();
 
@@ -25,6 +32,7 @@ public class PostController {
         posts.add(new Post("Post Title 4", "This is a description of post 4."));
 
         model.addAttribute("posts", posts);
+        PostService postService1 = (PostService) postService.findAll();
         return "/posts/index";
     }
 
