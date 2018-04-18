@@ -11,18 +11,21 @@ public class PostService {
     private List<Post> posts;
 
     public PostService() {
-        posts = new ArrayList<>();
+        this.posts = new ArrayList<>();
         createPosts();
     }
 
-    public List<Post> findAll() {
+    public List<Post> getAllPosts() {
         return posts;
     }
 
-    public Post findOne(long id) {
+    public Post getPost(long id) {
         return posts.get((int) (id - 1));
     }
 
     private void createPosts() {
+        posts.add(new Post("Test Post 1", "test description 1"));
+        posts.add(new Post("Test Post 2", "test description 2"));
+        posts.add(new Post("Test Post 3", "test description 3"));
     }
 }
