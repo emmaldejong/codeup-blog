@@ -37,4 +37,18 @@ public class PostController {
         postSvc.save(newPost);
         return "redirect:/posts";
     }
+
+    @GetMapping("/posts/{id}/edit")
+    public String showEditForm(@PathVariable long id, Model model) {
+        model.addAttribute("post", postSvc.getPost(id));
+        return "/posts/edit";
+    }
+
+    @PostMapping("/posts/edit")
+    public String editPost(@PathVariable long id, @ModelAttribute Post post) {
+        System.out.println("post = " + post.getId());
+        System.out.println("post = " + post.getTitle());
+        System.out.println("post = " + post.getBody());
+        return "redirect:/posts";
+    }
 }
