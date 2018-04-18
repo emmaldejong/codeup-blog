@@ -24,8 +24,13 @@ public class PostService {
     }
 
     private void createPosts() {
-        posts.add(new Post("Test Post 1", "test description 1"));
-        posts.add(new Post("Test Post 2", "test description 2"));
-        posts.add(new Post("Test Post 3", "test description 3"));
+        this.save(new Post("Test Post 1", "test description 1"));
+        this.save(new Post("Test Post 2", "test description 2"));
+        this.save(new Post("Test Post 3", "test description 3"));
+    }
+
+    public void save(Post post) {
+        post.setId(this.posts.size() + 1);
+        this.posts.add(post);
     }
 }
