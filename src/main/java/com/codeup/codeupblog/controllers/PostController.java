@@ -1,20 +1,20 @@
 package com.codeup.codeupblog.controllers;
 
 import com.codeup.codeupblog.daos.PostsRepository;
+import com.codeup.codeupblog.daos.UserRepository;
 import com.codeup.codeupblog.models.Post;
-import com.codeup.codeupblog.services.PostService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class PostController {
-    PostService postSvc;
     private final PostsRepository postsDao;
+    private final UserRepository usersDao;
 
-    public PostController(PostService postSvc, PostsRepository postsDao) {
-        this.postSvc = postSvc;
+    public PostController(PostsRepository postsDao, UserRepository usersDao) {
         this.postsDao = postsDao;
+        this.usersDao = usersDao;
     }
 
     @GetMapping("/posts")
@@ -37,6 +37,7 @@ public class PostController {
 
     @PostMapping("/posts/create")
     public String insert(@ModelAttribute Post newPost) {
+        newPost.setOwner(usersDao.findOne(1L));
         postsDao.save(newPost);
         return "redirect:/posts";
     }

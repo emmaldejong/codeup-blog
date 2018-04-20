@@ -4,15 +4,24 @@
     <body>
         <div th:replace="partials/navbar :: navbar"></div>
         <main class="container">
-            <form th:action="@{/posts/create}" th:method="post" th:object="${newPost}">
-                Title:
-                <input th:field="*{title}" />
-                <br />
-                Body:
-                <input th:field="*{body}" />
-                <br />
-                <input type="submit" />
-            </form>
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4">
+                    <h1>Create a New Post!</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4">
+                    <form th:action="@{/posts/create}" th:method="post" th:object="${newPost}">
+                        <h3>Title:</h3>
+                        <input th:field="*{title}" placeholder="post name..." />
+                        <br />
+                        <h3>Body:</h3>
+                        <textarea th:field="*{body}" placeholder="post details..."></textarea>
+                        <br />
+                        <input type="submit" class="btn btn-success" />
+                    </form>
+                </div>
+            </div>
         </main>
         <div th:replace="partials/footer :: footer"></div>
     </body>
