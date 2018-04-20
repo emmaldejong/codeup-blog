@@ -9,6 +9,13 @@ html {
 body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
+    background-color: #2D314B;
+}
+h1, h4 {
+    color: #A9A9A9;
+}
+.well {
+    background-color: lightgray;
 }
 .footer {
     position: absolute;
