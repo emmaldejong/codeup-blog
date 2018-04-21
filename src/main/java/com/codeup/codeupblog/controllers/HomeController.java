@@ -17,11 +17,11 @@ public class HomeController {
 // ################# using views instead of response body ###################
     @GetMapping("/")
     public String welcome() {
-        return "hello";
+        return "home";
     }
     @GetMapping("/hello/{name}")
     public String welcomeUser(@PathVariable String name, Model model) {
         model.addAttribute("name", name);
-        return "hello";
+        return "home";
     }
 }

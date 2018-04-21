@@ -11,11 +11,14 @@ body {
     margin-bottom: 60px;
     background-color: #2D314B;
 }
-h1, h4 {
+h1, h4, h3 {
     color: #A9A9A9;
 }
 .well {
     background-color: lightgray;
+}
+.post-title {
+    color: #333333;
 }
 .footer {
     position: absolute;
@@ -24,4 +27,15 @@ h1, h4 {
     /* Set the fixed height of the footer here */
     height: 60px;
     background-color: #222;
+}
+.post-body {
+    font-size: 18px;
+}
+.post-email {
+    font-size: 14px;
+}
+.post-categories {
+    font-size: 12px;
+    color: blue;
+    font-style: italic;
 }
