@@ -5,6 +5,7 @@
     <div th:replace="partials/navbar :: navbar"></div>
     <main class="container">
         <h3><span th:text="${post.title}"></span></h3>
+        <p class="post-categories"><span th:each="category : ${post.categories}" th:text="${category.name + ' '}" class="font-italic"></span></p>
         <p><span th:text="${post.body}"></span></p>
     </main>
     <div th:replace="partials/footer :: footer"></div>

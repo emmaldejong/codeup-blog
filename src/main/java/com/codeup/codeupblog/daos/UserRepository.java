@@ -1,10 +1,10 @@
 package com.codeup.codeupblog.daos;
 
-import com.codeup.codeupblog.models.Post;
+import com.codeup.codeupblog.models.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface PostsRepository extends CrudRepository<Post, Long> {
+public interface UserRepository extends CrudRepository<User, Long>{
 
 }

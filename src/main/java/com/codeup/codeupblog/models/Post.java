@@ -1,6 +1,7 @@
 package com.codeup.codeupblog.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "posts")
@@ -14,18 +15,33 @@ public class Post {
     @Column(nullable = false, length = 600)
     private String body;
 
+    @OneToOne
+    private User owner;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "post_categories",
+            joinColumns = {@JoinColumn(name = "post_id")},
+            inverseJoinColumns = {@JoinColumn(name = "category_id")}
+    )
+    private List<Categories> categories;
+
     public Post() {
     }
 
-    public Post(String title, String body) {
+    public Post(String title, String body, User owner, List<Categories> categories) {
         this.title = title;
         this.body = body;
+        this.owner = owner;
+        this.categories = categories;
     }
 
-    public Post(long id, String title, String body) {
+    public Post(long id, String title, String body, User owner, List<Categories> categories) {
         this.id = id;
         this.title = title;
         this.body = body;
+        this.owner = owner;
+        this.categories = categories;
     }
 
     public String getTitle() {
@@ -50,5 +66,21 @@ public class Post {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public User getOwner() {
+        return owner;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
+    }
+
+    public List<Categories> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Categories> categories) {
+        this.categories = categories;
     }
 }
