@@ -11,7 +11,7 @@ body {
     margin-bottom: 60px;
     background-color: #2D314B;
 }
-h1, h4, h3 {
+h1, h4, h3, .checkbox {
     color: #A9A9A9;
 }
 .well {

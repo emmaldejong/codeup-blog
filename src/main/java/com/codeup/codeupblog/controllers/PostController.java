@@ -1,7 +1,9 @@
 package com.codeup.codeupblog.controllers;
 
+import com.codeup.codeupblog.daos.CategoriesRepository;
 import com.codeup.codeupblog.daos.PostsRepository;
 import com.codeup.codeupblog.daos.UserRepository;
+import com.codeup.codeupblog.models.Categories;
 import com.codeup.codeupblog.models.Post;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,10 +13,12 @@ import org.springframework.web.bind.annotation.*;
 public class PostController {
     private final PostsRepository postsDao;
     private final UserRepository usersDao;
+    private final CategoriesRepository catDao;
 
-    public PostController(PostsRepository postsDao, UserRepository usersDao) {
+    public PostController(PostsRepository postsDao, UserRepository usersDao, CategoriesRepository catDao) {
         this.postsDao = postsDao;
         this.usersDao = usersDao;
+        this.catDao = catDao;
     }
 
     @GetMapping("/posts")
@@ -31,7 +35,9 @@ public class PostController {
 
     @GetMapping("/posts/create")
     public String showCreateForm(Model model) {
+        Iterable<Categories> categories = catDao.findAll();
         model.addAttribute("newPost", new Post());
+        model.addAttribute("categories", categories);
         return "/posts/create";
     }
 
@@ -44,7 +50,9 @@ public class PostController {
 
     @GetMapping("/posts/{id}/edit")
     public String showEditForm(@PathVariable long id, Model model) {
+        Iterable<Categories> categories = catDao.findAll();
         model.addAttribute("post", postsDao.findOne(id));
+        model.addAttribute("categories", categories);
         return "/posts/edit";
     }
 
