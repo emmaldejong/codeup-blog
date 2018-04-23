@@ -3,6 +3,9 @@
     <head th:replace="partials/header :: header('List of Posts')"></head>
     <body>
         <div th:replace="partials/navbar :: navbar"></div>
+        <form th:action="@{/logout}" th:method="post">
+            <button class="btn" style="margin-top: 8px">Logout</button>
+        </form>
         <main class="container">
             <div class="row">
                 <div class="col-md-4 col-md-offset-4">
