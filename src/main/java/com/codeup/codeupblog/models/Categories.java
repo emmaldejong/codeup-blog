@@ -12,7 +12,7 @@ public class Categories {
     @Column(nullable = false)
     private String name;
 
-    @ManyToMany(mappedBy = "categories")
+    @ManyToMany(mappedBy = "categories", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<Post> posts;
 
     public Categories(long id, String name, List<Post> posts) {

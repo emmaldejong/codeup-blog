@@ -12,7 +12,8 @@ TODO:
 - edit home page for /
 - code comment markup
 - update sticky footer
-- update hard coded assigning user to post creation (4)
+
+`- update hard coded assigning user to post creation (4)`
 - turn some css into bootstrap if possible
 
 `- logout not fully logging people out`
@@ -20,5 +21,6 @@ TODO:
 `- can still visit edit when not logged in`
 
 **WISH LIST:**
-- categories
+
+`- categories`
 - images
