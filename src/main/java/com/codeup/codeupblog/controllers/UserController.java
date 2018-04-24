@@ -37,7 +37,7 @@ public class UserController {
 
     @GetMapping("/login")
     public String showLoginForm() {
-        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         return "/users/login";
     }
 }
