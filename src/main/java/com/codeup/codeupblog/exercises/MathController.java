@@ -1,4 +1,4 @@
-package com.codeup.codeupblog.controllers;
+package com.codeup.codeupblog.exercises;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
