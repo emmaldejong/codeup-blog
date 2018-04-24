@@ -1,6 +1,7 @@
 package com.codeup.codeupblog.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
@@ -10,6 +11,7 @@ public class Post {
     private long id;
 
     @Column(nullable = false, length = 200)
+    @Size(min = 1, max = 100, message = "Post Title Must be Between 1 and 100 Characters Long")
     private String title;
 
     @Column(nullable = false, length = 600)

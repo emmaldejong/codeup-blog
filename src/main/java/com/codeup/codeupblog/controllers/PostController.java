@@ -7,7 +7,10 @@ import com.codeup.codeupblog.models.Categories;
 import com.codeup.codeupblog.models.Post;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @Controller
 public class PostController {
@@ -42,8 +45,12 @@ public class PostController {
     }
 
     @PostMapping("/posts/create")
-    public String insert(@ModelAttribute Post newPost) {
-        newPost.setOwner(usersDao.findOne(1L));
+    public String insert(@Valid Post newPost, Errors errors, Model model) {
+//        newPost.setOwner(usersDao.findOne(1L));
+        if (errors.hasErrors()) {
+            model.addAttribute("newPost", newPost);
+            return "/posts/create";
+        }
         postsDao.save(newPost);
         return "redirect:/posts";
     }
