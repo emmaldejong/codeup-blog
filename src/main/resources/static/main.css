@@ -9,7 +9,7 @@ html {
 body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
-    background-color: #2D314B;
+    background-image: url("gradient-16415.jpg");
 }
 h1, h4, h3, .checkbox, label {
     color: #A9A9A9;
