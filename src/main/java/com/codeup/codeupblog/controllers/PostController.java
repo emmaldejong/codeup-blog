@@ -71,6 +71,7 @@ public class PostController {
         Post e = postsDao.findOne(editPost.getId());
         e.setTitle(editPost.getTitle());
         e.setBody(editPost.getBody());
+        e.setCategories(editPost.getCategories());
         postsDao.save(e);
         return "redirect:/posts";
     }

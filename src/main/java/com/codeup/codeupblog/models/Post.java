@@ -20,7 +20,7 @@ public class Post {
     @OneToOne
     private User owner;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
             name = "post_categories",
             joinColumns = {@JoinColumn(name = "post_id")},
