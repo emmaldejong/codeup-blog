@@ -5,6 +5,8 @@ import com.codeup.codeupblog.daos.PostsRepository;
 import com.codeup.codeupblog.daos.UserRepository;
 import com.codeup.codeupblog.models.Categories;
 import com.codeup.codeupblog.models.Post;
+import com.codeup.codeupblog.models.User;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -46,11 +48,12 @@ public class PostController {
 
     @PostMapping("/posts/create")
     public String insert(@Valid Post newPost, Errors errors, Model model) {
-//        newPost.setOwner(usersDao.findOne(1L));
         if (errors.hasErrors()) {
             model.addAttribute("newPost", newPost);
             return "/posts/create";
         }
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        newPost.setOwner(loggedInUser);
         postsDao.save(newPost);
         return "redirect:/posts";
     }
