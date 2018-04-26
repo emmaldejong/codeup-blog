@@ -18,7 +18,7 @@
                         <a th:href="@{/posts/{postId}/(postId=${post.getId()})}"><h3 class="post-title"><span th:text="${post.title}"></span></h3></a>
                         <p class="post-body"><span th:text="${post.body}"></span></p>
                         <p class="post-email">Posted By: <span th:text="${post.owner.email}"></span></p>
-                        <p class="post-categories"><span th:each="category : ${post.categories}" th:text="${category.name + ' '}" class="font-italic"></span></p>
+                        <p class="post-categories">Tags: <span th:each="category : ${post.categories}" th:text="${category.name + ' '}" class="font-italic"></span></p>
                     </div>
                 </div>
             </div>
