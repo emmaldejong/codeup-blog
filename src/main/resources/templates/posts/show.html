@@ -4,11 +4,15 @@
     <body>
         <div th:replace="partials/navbar :: navbar"></div>
         <main class="container">
-            <h3><span th:text="${post.title}"></span></h3>
-            <p class="post-categories"><span th:each="category : ${post.categories}" th:text="${category.name + ' '}" class="font-italic"></span></p>
-            <p><span th:text="${post.body}"></span></p>
-            <p class="post-email">Posted By: <span th:text="${post.owner.email}"></span></p>
-            <a th:href="@{/posts/{postId}/edit/(postId=${post.getId()})}"><button>Edit Post</button></a>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-2">
+                    <h3><span th:text="${post.title}"></span></h3>
+                    <p class="post-categories"><span th:each="category : ${post.categories}" th:text="${category.name + ' '}" class="font-italic"></span></p>
+                    <p><span th:text="${post.body}"></span></p>
+                    <p class="post-email">Posted By: <span th:text="${post.owner.email}"></span></p>
+                    <a th:href="@{/posts/{postId}/edit/(postId=${post.getId()})}"><button class="btn btn-success"><h5>Edit Post</h5></button></a>
+                </div>
+            </div>
         </main>
         <div th:replace="partials/footer :: footer"></div>
     </body>
